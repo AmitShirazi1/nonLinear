@@ -32,7 +32,7 @@ def exact_quad(A):
         raise Exception('A is not positive definite') from None
     
     def lsearch(f ,xk ,gk):
-        return (np.linalg.norm(gk) / np.linalg.norm(np.dot(A ,gk))) ** 2
+        return (np.linalg.norm(gk) ** 2) / (2 * np.matmul(gk.T, np.matmul(A ,gk)))
     return lsearch
 
 def back(alpha ,beta , s):
